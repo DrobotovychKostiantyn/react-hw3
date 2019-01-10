@@ -1,0 +1,21 @@
+.blockTitle {
+  margin-bottom: 60px;
+}
+
+.title {
+  font-size: 30px;
+  line-height: 32px;
+  text-align: center;
+  color: #343947;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.title:after {
+  content: '';
+  display: block;
+  margin: 0 auto;
+  width: 130px;
+  border-bottom: 3px solid #3ab6e6;
+  margin-top: 30px;
+}
