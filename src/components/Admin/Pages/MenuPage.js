@@ -75,7 +75,7 @@ export default class MenuPage extends Component {
     return (
       <div>
         <h2>MenuPage</h2>
-        <NavLink to="/menu/add">Add new Dish</NavLink>
+        <NavLink to={`${this.props.match.path}/add`}>Add new Dish</NavLink>
         <hr />
         <Options
           categories={categories}
