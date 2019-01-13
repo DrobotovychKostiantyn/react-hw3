@@ -9,10 +9,6 @@ import NotFoundPage from './Pages/NotFoundPage';
 import MenuItemPage from './Pages/MenuItemPage';
 import AddItemMenuPage from './Pages/AddItemMenuPage';
 
-// import FeaturesSection from './FeaturesSection/FeaturesSection';
-
-// import DeviceSection from './DeviceSection/DeviceSection';
-
 const App = () => (
   <>
     <Nav />

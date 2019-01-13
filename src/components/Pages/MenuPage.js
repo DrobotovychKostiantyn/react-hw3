@@ -11,39 +11,46 @@ export default class MenuPage extends Component {
   state = {
     listMenu: [],
     categories: [],
+    isLoading: false,
+    error: null,
   };
 
   componentDidMount() {
     const currentCategory = queryString.parse(this.props.location.search)
       .category;
-    // console.log(currentCategory);
-    api.getCategories().then(categories => this.setState({ categories }));
+    this.setState({ isLoading: true });
+    api
+      .getCategories()
+      .then(categories => this.setState({ categories }))
+      .catch(error => this.setState({ error, isLoading: false }));
 
     if (!currentCategory) {
-      api.getAllMenuItems().then(menu => this.setState({ listMenu: menu }));
+      api
+        .getAllMenuItems()
+        .then(menu => this.setState({ listMenu: menu, isLoading: false }));
       return;
     }
 
     api
       .getMenuItemsWithCategory(currentCategory)
-      .then(menu => this.setState({ listMenu: menu }));
+      .then(menu => this.setState({ listMenu: menu, isLoading: false }));
   }
 
   componentDidUpdate(prevProps) {
     const prev = queryString.parse(prevProps.location.search).category;
     const next = queryString.parse(this.props.location.search).category;
 
-    // console.log(prev, 'prev');
-    // console.log(next, 'next');
-
     if (prev === next) return;
-    api
-      .getMenuItemsWithCategory(next)
-      .then(menu => this.setState({ listMenu: menu }));
+    api.getMenuItemsWithCategory(next).then(menu => {
+      this.setState({ isLoading: true });
+      this.setState({ listMenu: menu, isLoading: false });
+    });
 
     if (next === undefined) {
-      api.getAllMenuItems().then(menu => this.setState({ listMenu: menu }));
-      console.log('undefined');
+      api.getAllMenuItems().then(menu => {
+        this.setState({ isLoading: true });
+        this.setState({ listMenu: menu, isLoading: false });
+      });
     }
   }
 
@@ -62,9 +69,8 @@ export default class MenuPage extends Component {
   };
 
   render() {
-    const { listMenu, categories } = this.state;
+    const { listMenu, categories, error, isLoading } = this.state;
     const currentValue = queryString.parse(this.props.location.search).category;
-    // console.log(currentValue);
 
     return (
       <div>
@@ -79,6 +85,8 @@ export default class MenuPage extends Component {
         {currentValue && (
           <BtnClear value={currentValue} handleClearBtn={this.handleClearBtn} />
         )}
+        {error && <h2>You have a problem. Try again!</h2>}
+        {isLoading && <p>Loading....</p>}
         <Menu list={listMenu} />
       </div>
     );
