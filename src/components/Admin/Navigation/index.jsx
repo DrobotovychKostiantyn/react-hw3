@@ -5,7 +5,7 @@ import s from './navigation.module.css';
 const Nav = () => (
   <ul className={s.nav}>
     <li>
-      <NavLink to="/admin/main-page">Main Page</NavLink>
+      <NavLink to="/admin">Main Page</NavLink>
     </li>
     <li>
       <NavLink to="/admin/menu">Menu</NavLink>

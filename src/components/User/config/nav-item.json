@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "link": "/menu",
+    "navItem": "Menu"
+  },
+  {
+    "id": 2,
+    "link": "/about",
+    "navItem": "About us"
+  },
+  {
+    "id": 3,
+    "link": "/contact",
+    "navItem": "Contact"
+  },
+  {
+    "id": 4,
+    "link": "/delivery",
+    "navItem": "Delivery"
+  }
+]

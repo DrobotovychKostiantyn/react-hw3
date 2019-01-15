@@ -1,14 +1,14 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import User from './Client/User';
-import Admin from './Admin/admin';
+import User from './User/index';
+import Admin from './Admin/index';
 
 const App = () => (
   <>
     <Switch>
       <Route path="/admin" component={Admin} />
-      <Route exact path="/" component={User} />
+      <Route component={User} />
     </Switch>
   </>
 );

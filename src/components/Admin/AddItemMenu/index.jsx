@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as api from '../services/api';
+import * as api from '../../services/api';
 
 import Category from '../Options/index';
 
@@ -46,7 +46,7 @@ export default class AddItemMenu extends Component {
     await api.postMenuItem(post);
 
     this.props.history.push({
-      pathname: '/menu',
+      pathname: '/admin/menu',
       search: ``,
     });
   };
