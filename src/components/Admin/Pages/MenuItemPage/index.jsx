@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MenuItemPageContent from '../../../MenuItemPageContent/index';
+import MenuItemPageContent from '../../MenuItemPageContent/index';
 import * as api from '../../../services/api';
 
 export default class MenuItemPage extends Component {

@@ -5,10 +5,10 @@ import s from './navigation.module.css';
 const Nav = () => (
   <ul className={s.nav}>
     <li>
-      <NavLink to="/admin">Main Page</NavLink>
+      <NavLink to="/">Main Page</NavLink>
     </li>
     <li>
-      <NavLink to="/admin/menu">Menu</NavLink>
+      <NavLink to="/menu">Menu</NavLink>
     </li>
   </ul>
 );

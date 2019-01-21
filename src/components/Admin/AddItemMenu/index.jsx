@@ -46,7 +46,7 @@ export default class AddItemMenu extends Component {
     await api.postMenuItem(post);
 
     this.props.history.push({
-      pathname: '/admin/menu',
+      pathname: '/menu',
       search: ``,
     });
   };

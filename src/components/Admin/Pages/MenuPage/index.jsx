@@ -5,7 +5,7 @@ import * as api from '../../../services/api';
 
 import Options from '../../Options/index';
 import BtnClear from '../../BtnClear/index';
-import Menu from '../../../Menu/index';
+import Menu from '../../Menu/index';
 
 export default class MenuPage extends Component {
   state = {
